@@ -8,8 +8,8 @@
         {% if wishlists %}
 
             <div class="btn-group btn-wishlist align-bottom">
-                <a class="btn btn-lg dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
-                <ul class="dropdown-menu dropdown-menu-right">
+                <a class="btn btn-lg dropdown-toggle" data-bs-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
+                <ul class="dropdown-menu dropdown-menu-end">
                     {% for wishlist in wishlists %}
                         {% if wishlist not in product_wishlists %}
                             <li>
@@ -40,9 +40,9 @@
             <form action="{% url 'customer:wishlists-remove-product' key=wishlist.key product_pk=product.id %}" method="post">
                 {% csrf_token %}
                 {% blocktrans with name=wishlist.name url=wishlist.get_absolute_url %}
-                    <span class="float-left">Product is in <a href="{{ url }}">'{{ name }}'</a> wishlist.</span>
+                    <span class="float-start">Product is in <a href="{{ url }}">'{{ name }}'</a> wishlist.</span>
                 {% endblocktrans %}
-                <button type="submit" class="btn btn-sm float-right" data-loading-text="{% trans 'Removing...' %}">{% trans "Remove" %}</button>
+                <button type="submit" class="btn btn-sm float-end" data-loading-text="{% trans 'Removing...' %}">{% trans "Remove" %}</button>
             </form>
         {% endfor %}
     {% endwith %}

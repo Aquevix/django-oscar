@@ -9,7 +9,7 @@
     {% endcomment %}
 
     {% block control_group %}
-        <div class="form-group{% if style == "horizontal" %} row{% endif %}">
+        <div class="mb-3{% if style == "horizontal" %} row{% endif %}">
 
             {% block label %}
                 {% if not nolabel and field.widget_type != 'checkbox' %}

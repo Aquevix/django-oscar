@@ -22,7 +22,7 @@
 
 {% block header %}
     <div class="page-header">
-        <a href="{% url 'dashboard:voucher-create' %}" class="btn btn-primary float-right"><i class="fas fa-plus-circle"></i> {% trans "Create new voucher" %}</a>
+        <a href="{% url 'dashboard:voucher-create' %}" class="btn btn-primary float-end"><i class="fas fa-plus-circle"></i> {% trans "Create new voucher" %}</a>
         <h1>{% trans "Vouchers" %}</h1>
     </div>
 {% endblock header %}
@@ -34,13 +34,13 @@
             <h3><i class="fas fa-search"></i> {% trans "Search" %}</h3>
         </div>
         <div class="card card-body bg-light">
-            <form method="get" class="form-inline">
+            <form method="get" class="d-flex align-items-center">
                 {% for field in form %}
                     {% if field.name in form.basic_fields %}
                         {% if field.is_hidden %}
                             {{ field }}
                         {% else %}
-                            <div class="form-group mr-2{% if field.errors %} error{% endif %}">
+                            <div class="mb-3 me-2{% if field.errors %} error{% endif %}">
                                 {{ field.label_tag }}
                                 {% render_field field class+='form-control' %}
                                 {% for error in field.errors %}
@@ -55,8 +55,8 @@
                         <input type="hidden" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}">
                     {% endif %}
                 {% endfor %}
-                <button type="submit" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
-                <a data-toggle="modal" data-target="#SearchModal" href="#" class="mr-2">{% trans "Advanced Search" %}</a>
+                <button type="submit" class="btn btn-primary me-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+                <a data-bs-toggle="modal" data-bs-target="#SearchModal" href="#" class="me-2">{% trans "Advanced Search" %}</a>
                 <a href="{% url 'dashboard:voucher-list' %}" class="btn btn-secondary">{% trans "Reset" %}</a>
             </form>
 
@@ -67,7 +67,7 @@
             <div class="search-filter-list">
                 <label>Filters:</label>
                 {% for filter in search_filters %}
-                <span class="badge badge-success">{{ filter }}</span>
+                <span class="badge text-bg-success">{{ filter }}</span>
                 {% endfor %}
             </div>
             {% endif %}
@@ -105,13 +105,13 @@
                         <tr>
                             <td><a href="{% url 'dashboard:voucher-stats' voucher.id %}">{{ voucher.name }}</a></td>
                             <td>
-                                <span class="badge badge-secondary">{{ voucher.code }}</span>
+                                <span class="badge text-bg-secondary">{{ voucher.code }}</span>
                             </td>
                             <td>
                                 {% if voucher.is_active %}
-                                    <span class="badge badge-success">{% trans "Active" %}</span>
+                                    <span class="badge text-bg-success">{% trans "Active" %}</span>
                                 {% else %}
-                                    <span class="badge badge-secondary">{% trans "Inactive" %}</span>
+                                    <span class="badge text-bg-secondary">{% trans "Inactive" %}</span>
                                 {% endif %}
                             </td>
                             <td>{{ voucher.num_offers }}</td>
@@ -131,10 +131,10 @@
                                 {% block row_actions %}
                                     <div class="btn-toolbar">
                                         <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 {% trans "Actions" %}
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item" href="{% url 'dashboard:voucher-stats' pk=voucher.id %}">
                                                     {% trans "Stats" %}
                                                 </a>

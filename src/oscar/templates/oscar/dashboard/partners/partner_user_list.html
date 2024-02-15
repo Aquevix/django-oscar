@@ -16,12 +16,12 @@
 
 {% block header %}
     <div class="page-header">
-        <div class="btn-group float-right">
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+        <div class="btn-group float-end">
+            <a class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" href="#">
                 <i class="fas fa-plus-circle"></i>
                 {% trans 'Link a user' %}
             </a>
-            <ul class="dropdown-menu dropdown-menu-right">
+            <ul class="dropdown-menu dropdown-menu-end">
                 <li><a href="{% url 'dashboard:partner-user-create' partner_pk=partner.pk %}" >{% trans "Link a new user" %}</a></li>
                 <li><a href="{% url 'dashboard:partner-user-select' partner_pk=partner.pk %}" >{% trans "Link an existing user" %}</a></li>
             </ul>

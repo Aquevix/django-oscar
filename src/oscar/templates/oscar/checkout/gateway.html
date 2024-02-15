@@ -21,7 +21,7 @@
 
         {% include "oscar/partials/form_field.html" with field=form.username %}
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="controls">
                 <div class="radio">
                     {{ form.options.0 }}
@@ -29,12 +29,12 @@
             </div>
         </div>
 
-        <div class="form-group {% if form.password.errors %}error{% endif %}">
+        <div class="mb-3 {% if form.password.errors %}error{% endif %}">
             {{ form.options.errors }}
             <div class="controls">
                 <div class="radio">
                     {{ form.options.2 }}
-                    <div class="form-inline">
+                    <div class="d-flex align-items-center">
                         {% render_field form.password class+="form-control mr-sm-2" %}
                         <small><a href="{% url 'password-reset' %}" tabindex="-1">{% trans "Get a password reminder" %}</a></small>
                         {% for error in form.password.errors %}
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="controls">
                 <div class="radio">
                     {{ form.options.1 }}
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="row">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-lg btn-block btn-primary" data-loading-text="{% trans 'Continuing...' %}">{% trans "Continue" %}</button>

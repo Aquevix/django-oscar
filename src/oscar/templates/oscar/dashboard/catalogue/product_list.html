@@ -33,7 +33,7 @@
             <h3><i class="fas fa-sitemap"></i> {% trans "Create new product" %}</h3>
         </div>
         <div class="card card-body">
-            <form action="{% url 'dashboard:catalogue-product-create' %}" method="get" class="form-inline">
+            <form action="{% url 'dashboard:catalogue-product-create' %}" method="get" class="d-flex align-items-center">
                 {% include "oscar/dashboard/partials/form_fields_inline.html" with form=productclass_form %}
                 <button class="btn btn-primary" type="submit" data-loading-text="{% trans 'Submitting...' %}">
                     <i class="fas fa-plus-circle"></i> {% trans "New Product" %}
@@ -47,7 +47,7 @@
             <h3><i class="fas fa-search"></i> {% trans "Search Products" %}</h3>
         </div>
         <div class="card card-body">
-            <form method="get" class="form-inline">
+            <form method="get" class="d-flex align-items-center">
                 {% comment %}
                     Add the current query string to the search form so that the
                     sort order is not reset when searching.
@@ -75,7 +75,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title"></h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
                             <img class="img-fluid mx-auto">

@@ -4,13 +4,13 @@
 
 <nav class="{% block nav_classes %}navbar navbar-expand-lg navbar-dark bg-dark{% endblock %}">
     {% block navbar_toggler %}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     {% endblock %}
 
     {% block navbar_basket %}
-        <a class="btn btn-secondary float-right btn-cart ml-auto d-inline-block d-md-none" href="{% url 'basket:summary' %}">
+        <a class="btn btn-secondary float-end btn-cart ms-auto d-inline-block d-md-none" href="{% url 'basket:summary' %}">
             <i class="fas fa-shopping-cart"></i>
             {% trans "Basket" %}
             {% if not request.basket.is_empty %}
@@ -30,10 +30,10 @@
     {% block navbar_collapse %}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% block nav %}
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto">
                     {% block nav_items %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {% block browse_store_text %}{% trans "Browse store" %}{% endblock %}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
